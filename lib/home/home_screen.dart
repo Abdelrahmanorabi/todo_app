@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_app/home/settings/settings_tab.dart';
 import 'package:todo_app/home/tasks_list/tasks_list_tab.dart';
+import 'package:todo_app/providers/settings_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
@@ -10,14 +13,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late SettingsProvider settingsProvider;
   int selectedIndex = 0;
-  List<Widget> tabs = [TasksListTab(),SettingsTab()];
+  List<Widget> tabs = [TasksListTab(), SettingsTab()];
 
   @override
   Widget build(BuildContext context) {
+    settingsProvider = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Todo List App'),
+        title: Text(settingsProvider.currentLanguage == 'en'
+            ? AppLocalizations.of(context)!.toDo
+            : AppLocalizations.of(context)!.toDo),
       ),
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
@@ -48,7 +55,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: const Icon(Icons.add),
       ),
-
       body: tabs[selectedIndex],
     );
   }
