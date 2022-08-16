@@ -6,7 +6,7 @@ import 'package:todo_app/home/tasks_list/tasks_list_tab.dart';
 import 'package:todo_app/providers/settings_provider.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const String routeName = 'home';
+  static const String routeName = 'home_screen';
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
