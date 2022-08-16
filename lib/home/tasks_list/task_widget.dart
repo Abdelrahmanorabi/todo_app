@@ -8,7 +8,6 @@ class TaskWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(8),
-
       child: Slidable(
         startActionPane: ActionPane(
           motion: DrawerMotion(),
@@ -18,7 +17,9 @@ class TaskWidget extends StatelessWidget {
               icon: Icons.delete,
               backgroundColor: MyTheme.red,
               label: 'Delete',
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  bottomLeft: Radius.circular(12)),
             )
           ],
         ),
