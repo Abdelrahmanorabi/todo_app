@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_app/home/add_task_bottom_sheet.dart';
 import 'package:todo_app/home/settings/settings_tab.dart';
 import 'package:todo_app/home/tasks_list/tasks_list_tab.dart';
 import 'package:todo_app/providers/settings_provider.dart';
@@ -13,9 +14,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  /*====================[Variables]========================*/
   late SettingsProvider settingsProvider;
   int selectedIndex = 0;
   List<Widget> tabs = [TasksListTab(), SettingsTab()];
+  /*=====================================================*/
+
+  /*====================[Methods]========================*/
+  void showAddTaskBottomSheet(){
+    showModalBottomSheet(
+        context: context, builder: (buildContext){
+          return AddTaskBottomSheet();
+    });
+  }
+  /*=====================================================*/
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +61,9 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showAddTaskBottomSheet();
+        },
         shape: const StadiumBorder(
           side: BorderSide(width: 4, color: Colors.white),
         ),
