@@ -42,13 +42,13 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-      decoration: BoxDecoration(
-          color: Colors.grey[400],
-          border: Border.all(color: Colors.grey),
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
-          )),
+      // decoration: BoxDecoration(
+      //     color: Colors.grey[400],
+      //     border: Border.all(color: Colors.grey),
+      //     borderRadius: const BorderRadius.only(
+      //       topLeft: Radius.circular(15),
+      //       topRight: Radius.circular(15),
+      //     )),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

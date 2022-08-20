@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SettingsProvider extends ChangeNotifier {
   String currentLanguage = 'en';
-  ThemeMode currentTheme = ThemeMode.dark;
+  ThemeMode currentTheme = ThemeMode.light;
 
   void changeLanguage(String newLanguage) {
     if (currentLanguage == newLanguage) return;
