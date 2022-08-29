@@ -18,15 +18,20 @@ class _HomeScreenState extends State<HomeScreen> {
   late SettingsProvider settingsProvider;
   int selectedIndex = 0;
   List<Widget> tabs = [TasksListTab(), SettingsTab()];
+
   /*=====================================================*/
 
   /*====================[Methods]========================*/
-  void showAddTaskBottomSheet(){
+  void showAddTaskBottomSheet() {
     showModalBottomSheet(
-        context: context, builder: (buildContext){
-          return AddTaskBottomSheet();
-    });
+      isScrollControlled: true,
+      context: context,
+      builder: (buildContext) {
+        return AddTaskBottomSheet();
+      },
+    );
   }
+
   /*=====================================================*/
 
   @override
@@ -50,8 +55,6 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor:
               Theme.of(context).bottomNavigationBarTheme.backgroundColor,
           elevation: Theme.of(context).bottomNavigationBarTheme.elevation,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.list), label: 'List'),
             BottomNavigationBarItem(

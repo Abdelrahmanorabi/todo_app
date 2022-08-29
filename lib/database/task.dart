@@ -1,11 +1,14 @@
 class Task {
+  /*=================[Variables]===============*/
   static const String collectionName='tasks';
   String? id;
   String? title;
   String? description;
   DateTime? dateTime;
   bool? isDone;
+  /*========================================*/
 
+  // Constructor
   Task({
     this.id,
     this.title,
@@ -14,22 +17,27 @@ class Task {
     this.isDone,
   });
 
-  Task.fromFireStore(Map<String, dynamic> data)
-      :this(
-      id: data['id'],
-      title: data['title'],
-      description: data['description'],
-      dateTime:DateTime.fromMillisecondsSinceEpoch(data['datetime']),
-      isDone: data['isDone']
-      );
+  // Named Constructor
+  Task.fromFireStore(Map<String, dynamic> data){
+    id = data['id'];
+    title= data['title'];
+    description= data['description'];
+    dateTime=DateTime.fromMillisecondsSinceEpoch(data['dateTime']);
+    isDone= data['isDone'];
+  }
 
+
+
+  /*=================[Methods]===============*/
   Map<String,dynamic>toFireStore(){
     return{
       'id':id,
       'title':title,
       'description':description,
-      'dateTime':dateTime?.microsecondsSinceEpoch,
+      'dateTime':dateTime?.millisecondsSinceEpoch, // converted to int value
       'isDone':isDone
     };
   }
+/*========================================*/
+
 }
